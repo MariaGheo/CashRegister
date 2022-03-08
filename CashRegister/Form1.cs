@@ -18,13 +18,13 @@ namespace CashRegister
         string flavour;
         string cone;
         string topping;
-        double iceCreamPrice = 1;
-        double regularConePrice = 1;
-        double waffleConePrice = 2;
-        double cupPrice = 0.5;
-        double sprinklesPrice = 0.1;
-        double cookieCrumbsPrice = 0.25;
-        double taxRate = 0.13;
+        const double iceCreamPrice = 1;
+        const double regularConePrice = 1;
+        const double waffleConePrice = 2;
+        const double cupPrice = 0.5;
+        const double sprinklesPrice = 0.1;
+        const double cookieCrumbsPrice = 0.25;
+        const double taxRate = 0.13;
         double subtotal;
         double taxAmount;
         double totalPrice;
@@ -64,6 +64,9 @@ namespace CashRegister
             regularButton.Visible = true;
             waffleButton.Visible = true;
             cupButton.Visible = true;
+
+            //show back button
+            backButton.Visible = true;
         }
 
         private void chocolateButton_Click(object sender, EventArgs e)
@@ -84,6 +87,9 @@ namespace CashRegister
             regularButton.Visible = true;
             waffleButton.Visible = true;
             cupButton.Visible = true;
+
+            //show back button
+            backButton.Visible = true;
         }
 
         private void swirlButton_Click(object sender, EventArgs e)
@@ -104,6 +110,9 @@ namespace CashRegister
             regularButton.Visible = true;
             waffleButton.Visible = true;
             cupButton.Visible = true;
+
+            //show back button
+            backButton.Visible = true;
         }
 
         private void regularButton_Click(object sender, EventArgs e)
@@ -124,6 +133,9 @@ namespace CashRegister
             noneButton.Visible = true;
             sprinklesButton.Visible = true;
             cookieCrumbsButton.Visible = true;
+
+            //move back button
+            backButton.Location = new Point(30, 584);
         }
 
         private void waffleButton_Click(object sender, EventArgs e)
@@ -144,6 +156,9 @@ namespace CashRegister
             noneButton.Visible = true;
             sprinklesButton.Visible = true;
             cookieCrumbsButton.Visible = true;
+
+            //move back button
+            backButton.Location = new Point(30, 584);
         }
 
         private void cupButton_Click(object sender, EventArgs e)
@@ -164,6 +179,9 @@ namespace CashRegister
             noneButton.Visible = true;
             sprinklesButton.Visible = true;
             cookieCrumbsButton.Visible = true;
+
+            //move back button
+            backButton.Location = new Point(30, 584);
         }
 
         private void noneButton_Click(object sender, EventArgs e)
@@ -217,6 +235,70 @@ namespace CashRegister
             confirmOrderButton.Visible = true;
         }
 
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            if (noneButton.Enabled == false)
+            {
+                //clear choice
+                topping = "";
+
+                //reset the colour of the topping buttons and enable them again
+                noneButton.BackColor = Color.Transparent;
+                sprinklesButton.BackColor = Color.Transparent;
+                cookieCrumbsButton.BackColor = Color.Transparent;
+                noneButton.Enabled = true;
+                sprinklesButton.Enabled = true;
+                cookieCrumbsButton.Enabled = true;
+
+                //hide the confirm order button
+                confirmOrderButton.Visible = false;
+            }
+            else if (regularButton.Enabled == false)
+            {
+                //clear choice
+                cone = "";
+
+                //reset the colour of the cone buttons and enable them again
+                regularButton.BackColor = Color.Transparent;
+                waffleButton.BackColor = Color.Transparent;
+                cupButton.BackColor = Color.Transparent;
+                regularButton.Enabled = true;
+                waffleButton.Enabled = true;
+                cupButton.Enabled = true;
+
+                //hide the topping buttons
+                selectToppingLabel.Visible = false;
+                noneButton.Visible = false;
+                sprinklesButton.Visible = false;
+                cookieCrumbsButton.Visible = false;
+
+                //move back button
+                backButton.Location = new Point(30, 410);
+            }
+            else
+            {
+                //clear choice
+                flavour = "";
+
+                //reset the colour of the ice cream buttons and enable them again
+                vanillaButton.BackColor = Color.Transparent;
+                chocolateButton.BackColor = Color.Transparent;
+                swirlButton.BackColor = Color.Transparent;
+                vanillaButton.Enabled = true;
+                chocolateButton.Enabled = true;
+                swirlButton.Enabled = true;
+
+                //hide the cone type buttons
+                selectConeTypeLabel.Visible = false;
+                regularButton.Visible = false;
+                waffleButton.Visible = false;
+                cupButton.Visible = false;
+
+                //hide back button
+                backButton.Visible = false;
+            }
+        }
+
         private void confirmOrderButton_Click(object sender, EventArgs e)
         {
             //clear the screen
@@ -232,31 +314,32 @@ namespace CashRegister
             noneButton.Visible = false;
             sprinklesButton.Visible = false;
             cookieCrumbsButton.Visible = false;
+            backButton.Visible = false;
             confirmOrderButton.Visible = false;
 
             //calculate subtotal (cone price)
             subtotal = iceCreamPrice;
             if (cone == "regular cone")
             {
-                subtotal = subtotal + regularConePrice;
+                subtotal += regularConePrice;
             }
             else if (cone == "waffle cone")
             {
-                subtotal = subtotal + waffleConePrice;
+                subtotal += waffleConePrice;
             }
             else if (cone == "cup")
             {
-                subtotal = subtotal + cupPrice;
+                subtotal += cupPrice;
             }
             
             //calculate subtotal (topping price)
             if (topping == "sprinkles")
             {
-                subtotal = subtotal + sprinklesPrice;
+                subtotal += sprinklesPrice;
             }
             else if (topping == "cookie crumbs")
             {
-                subtotal = subtotal + cookieCrumbsPrice;
+                subtotal += cookieCrumbsPrice;
             }
 
             //calculate tax and total
@@ -393,6 +476,9 @@ namespace CashRegister
             vanillaButton.Enabled = true;
             chocolateButton.Enabled = true;
             swirlButton.Enabled = true;
+
+            //replace back button
+            backButton.Location = new Point(30, 410);
 
             //enable cone buttons again
             regularButton.Enabled = true;

@@ -53,6 +53,7 @@
             this.printRecieptButton = new System.Windows.Forms.Button();
             this.printingRecieptLabel = new System.Windows.Forms.Label();
             this.newOrderButton = new System.Windows.Forms.Button();
+            this.backButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -317,7 +318,7 @@
             this.confirmOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.confirmOrderButton.Font = new System.Drawing.Font("Century", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmOrderButton.ForeColor = System.Drawing.Color.SeaGreen;
-            this.confirmOrderButton.Location = new System.Drawing.Point(276, 593);
+            this.confirmOrderButton.Location = new System.Drawing.Point(276, 584);
             this.confirmOrderButton.Name = "confirmOrderButton";
             this.confirmOrderButton.Size = new System.Drawing.Size(242, 39);
             this.confirmOrderButton.TabIndex = 18;
@@ -455,6 +456,26 @@
             this.newOrderButton.Visible = false;
             this.newOrderButton.Click += new System.EventHandler(this.newOrderButton_Click);
             // 
+            // backButton
+            // 
+            this.backButton.AutoSize = true;
+            this.backButton.BackColor = System.Drawing.Color.Transparent;
+            this.backButton.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.backButton.FlatAppearance.BorderSize = 2;
+            this.backButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.backButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSeaGreen;
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.Font = new System.Drawing.Font("Century", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.ForeColor = System.Drawing.Color.SeaGreen;
+            this.backButton.Location = new System.Drawing.Point(30, 410);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(120, 40);
+            this.backButton.TabIndex = 28;
+            this.backButton.Text = "Back";
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Visible = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -463,6 +484,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(774, 649);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.newOrderButton);
             this.Controls.Add(this.printRecieptButton);
             this.Controls.Add(this.changeOutputLabel);
@@ -521,6 +543,7 @@
         private System.Windows.Forms.Button printRecieptButton;
         private System.Windows.Forms.Label printingRecieptLabel;
         private System.Windows.Forms.Button newOrderButton;
+        private System.Windows.Forms.Button backButton;
     }
 }
 
